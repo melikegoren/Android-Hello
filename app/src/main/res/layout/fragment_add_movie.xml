@@ -1,13 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addmovie.AddMovieFragment">
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.addmovie.AddMovieFragment">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        app:title="@string/add_movie"
+        app:titleTextColor="@color/white"
+        android:background="@color/gray_800"
+        android:layout_marginBottom="@dimen/margin10dp"/>
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:startIconDrawable="@drawable/film_reel_24"
+        android:layout_marginVertical="@dimen/margin10dp"
+        android:layout_marginHorizontal="@dimen/margin20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/movie_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/name" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:hint="@string/type"
+        app:startIconDrawable="@drawable/film_frame_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin10dp"
+        android:layout_marginHorizontal="@dimen/margin20dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoComplete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        android:hint="@string/date"
+        app:startIconDrawable="@drawable/calendar_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin10dp"
+        android:layout_marginHorizontal="@dimen/margin20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="1"
+        android:layout_marginHorizontal="@dimen/margin20dp">
+
+        <RadioButton
+            android:id="@+id/firstTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/first_time"
+            android:textSize="@dimen/size16sp"
+            />
+
+        <RadioButton
+            android:id="@+id/rewatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/rewatch"
+            android:textSize="@dimen/size16sp"
+           />
+
+    </RadioGroup>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:layout_gravity="center"
+        android:stepSize="0.5"/>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin20dp"/>
+
+
+</LinearLayout>

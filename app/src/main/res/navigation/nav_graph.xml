@@ -7,17 +7,29 @@
 
     <fragment
         android:id="@+id/addMovieFragment"
-        android:name="com.example.androidhello.addmovie.AddMovieFragment"
+        android:name="com.example.androidhello.ui.addmovie.AddMovieFragment"
         android:label="fragment_add_movie"
-        tools:layout="@layout/fragment_add_movie" />
+        tools:layout="@layout/fragment_add_movie" >
+        <action
+            android:id="@+id/action_addMovieFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="com.example.androidhello.moviedetail.MovieDetailFragment"
+        android:name="com.example.androidhello.ui.moviedetail.MovieDetailFragment"
         android:label="fragment_movie_detail"
-        tools:layout="@layout/fragment_movie_detail" />
+        tools:layout="@layout/fragment_movie_detail" >
+        <action
+            android:id="@+id/action_movieDetailFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.example.androidhello.movies.MoviesFragment"
+        android:name="com.example.androidhello.ui.movies.MoviesFragment"
         android:label="fragment_movies"
         tools:layout="@layout/fragment_movies" >
         <action
@@ -29,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.example.androidhello.favorites.FavoritesFragment"
+        android:name="com.example.androidhello.ui.favorites.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" >
         <action

@@ -2,4 +2,30 @@
 <resources>
     <string name="bottom_nav_favorites">Favorites</string>
     <string name="bottom_nav_movies">Movies</string>
+    <string name="first_time">First Time</string>
+    <string name="rewatch">Rewatch</string>
+    <string name="Genre">\"Genre: \"</string>
+    <string name="Date">\"Date: \"</string>
+    <string name="last_viewed">\"Last Viewed: \"</string>
+    <string name="mad_max_fury_road">Mad Max: Fury Road</string>
+    <string name="add_movie">Add Movie</string>
+    <string name="name">Name</string>
+    <string name="type">Type</string>
+    <string name="date">Date</string>
+    <string name="save">Save</string>
+    <string name="first_time_or_rewatch">First Time or Rewatch:</string>
+    <string name="rate">"Rate: "</string>
+    <string name="action">Action</string>
+
+    <string-array name="Types">
+        <item>Action</item>
+        <item>Comedy</item>
+        <item>Fantastic</item>
+        <item>Horror</item>
+        <item>Thriller</item>
+        <item>Musical</item>
+        <item>Drama</item>
+        <item>Sci-Fi</item>
+    </string-array>
+
 </resources>
