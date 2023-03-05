@@ -11,5 +11,6 @@
     <dimen name="movie_detail_text_size">18sp</dimen>
     <dimen name="margin40dp">40dp</dimen>
     <dimen name="margin100dp">100dp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
 
 </resources>

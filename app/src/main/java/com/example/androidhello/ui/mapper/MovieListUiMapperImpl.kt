@@ -1,7 +1,8 @@
-package com.example.androidhello.ui.movies
+package com.example.androidhello.ui.mapper
 
 import com.example.androidhello.domain.mapper.MovieListMapper
 import com.example.androidhello.domain.model.MovieModel
+import com.example.androidhello.ui.movies.MovieUiData
 import javax.inject.Inject
 
 class MovieListUiMapperImpl @Inject constructor(): MovieListMapper<MovieModel, MovieUiData> {

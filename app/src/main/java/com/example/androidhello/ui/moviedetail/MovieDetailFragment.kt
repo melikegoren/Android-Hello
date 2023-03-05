@@ -13,6 +13,7 @@ import com.example.androidhello.databinding.FragmentMovieDetailBinding
 import com.example.androidhello.domain.mapper.MovieDetailMapper
 import com.example.androidhello.domain.model.MovieModel
 import com.example.androidhello.ui.SharedPrefManager
+import com.example.androidhello.ui.mapper.MovieDetailUiMapperImpl
 import com.example.androidhello.ui.viewModels.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

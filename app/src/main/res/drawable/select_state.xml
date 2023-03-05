@@ -7,7 +7,7 @@
         />
 
     <item
-        android:color = "@color/gray_900"
+        android:color = "@color/gray_800"
         android:state_selected="false"
         />
 

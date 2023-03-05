@@ -1,7 +1,7 @@
 package com.example.androidhello.di
 
 import com.example.androidhello.domain.repository.MovieRepository
-import com.example.androidhello.domain.repository.MovieRepositoryImpl
+import com.example.androidhello.data.repository.MovieRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

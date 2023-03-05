@@ -1,19 +1,18 @@
 package com.example.androidhello.ui.adapters
 
 import android.app.Activity
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidhello.databinding.MovieListItemBinding
 import com.example.androidhello.ui.movies.MovieUiData
-import com.example.androidhello.ui.movies.Navigation
+import com.example.androidhello.ui.movies.ClickHandleMoviesFragment
 import java.util.*
 import kotlin.collections.ArrayList
 
 class MoviesAdapter(private val movieList: ArrayList<MovieUiData>, private val context: Activity,
-                    private val navigation: Navigation
+                    private val clickHandleMoviesFragment: ClickHandleMoviesFragment
 ): RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
 
@@ -42,9 +41,20 @@ class MoviesAdapter(private val movieList: ArrayList<MovieUiData>, private val c
             movieName.text = movie.movieName
 
             cwMovie.setOnClickListener {
-                navigation.onCardViewClick(movie.id)
-
+                clickHandleMoviesFragment.onCardViewClick(movie.id)
             }
+
+            addToFav.setOnClickListener {
+                clickHandleMoviesFragment.onAddToFavButtonClick(movie.id)
+            }
+
+            delete.setOnClickListener {
+                clickHandleMoviesFragment.deleteMovieClick(movie.id)
+            }
+
+
+
+
 
         }
 
@@ -85,7 +95,7 @@ class MoviesAdapter(private val movieList: ArrayList<MovieUiData>, private val c
 
         }
 
-    private fun getFilter(): Filter {
+    fun getFilter(): Filter {
        return setFilter()
     }
 

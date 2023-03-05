@@ -1,8 +1,8 @@
 package com.example.androidhello.di
 
-import com.example.androidhello.ui.moviedetail.MovieDetailUiMapperImpl
+import com.example.androidhello.ui.mapper.MovieDetailUiMapperImpl
 import com.example.androidhello.domain.mapper.MovieListMapper
-import com.example.androidhello.ui.movies.MovieListUiMapperImpl
+import com.example.androidhello.ui.mapper.MovieListUiMapperImpl
 import com.example.androidhello.domain.mapper.MovieMapper
 import com.example.androidhello.domain.model.MovieModel
 import com.example.androidhello.ui.moviedetail.MovieDetailUiData

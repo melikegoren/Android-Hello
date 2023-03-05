@@ -7,7 +7,7 @@ class SharedPrefManager(context: Context) {
     private val editor = sharedPreferences.edit()
 
     fun setSharedPreference(key: String, value: String) {
-        editor.putString(key, value).apply()
+        editor.putString(key, value).commit()
     }
 
     fun getSharedPreference(key: String, value: String): String {

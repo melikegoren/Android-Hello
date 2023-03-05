@@ -79,15 +79,23 @@ class AddMovieFragment : Fragment() {
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
+            calendar.set(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH)
+
+
             val datePickerDialog = DatePickerDialog(
                 requireContext(), {
                     view, year, month, dayOfMonth  ->
 
-                    val format = (dayOfMonth.toString()+"/"+month+"/"+year)
+                    val format = (dayOfMonth.toString()+"/"+(month+1)+"/"+year)
                     binding.date.setText(format) },
                 day,year,month
-            ).show()
-         }
+            )
+
+            datePickerDialog.updateDate(year,month,day)
+
+            datePickerDialog.show()
+
+        }
 
 
     }
@@ -103,7 +111,7 @@ class AddMovieFragment : Fragment() {
 
                     val checkedId = radioGroup.checkedRadioButtonId
                     if(checkedId == R.id.rewatch){
-                        val whichTurn = "rewatch"
+                        val whichTurn = "Rewatch"
                         movie = MovieModel(0, name, genre, date, whichTurn, rate, false)
                         viewModel.addMovieToDatabase(movie)
                         Toast.makeText(requireContext(), "Movie added.", Toast.LENGTH_SHORT).show()
@@ -111,7 +119,7 @@ class AddMovieFragment : Fragment() {
 
                     }
                     else{
-                        val whichTurn = "first time"
+                        val whichTurn = "First time"
                         movie = MovieModel(0, name, genre, date, whichTurn, rate, false)
                         viewModel.addMovieToDatabase(movie)
                         Toast.makeText(requireContext(), "Movie added.", Toast.LENGTH_SHORT).show()

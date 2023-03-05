@@ -13,13 +13,22 @@ interface MovieDao {
     @Update
     suspend fun updateMovie(movie: MovieModel)
 
+    @Delete
+    suspend fun deleteMovie(movie: MovieModel)
+
     @Query("SELECT * FROM movies WHERE id = :id")
     suspend fun getMovieById(id: Int): MovieModel
 
     @Query("SELECT * FROM movies")
     fun getAllMovies(): Flow<List<MovieModel>>
 
-    @Query("SELECT * FROM movies WHERE isFav = :isFav ")
-    suspend fun getFavMovies(isFav: Boolean): List<MovieModel>
+    @Query("SELECT * FROM movies WHERE isFav = 1 ")
+    fun getFavMovies(): Flow<List<MovieModel>>
+
+    @Query("SELECT (SELECT COUNT(*) FROM movies) = 0")
+    suspend fun isDbEmpty(): Boolean
+
+    @Query("SELECT EXISTS(SELECT * FROM movies WHERE id = :id)")
+    suspend fun isIdValid(id: Int): Boolean
 
 }

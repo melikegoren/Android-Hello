@@ -16,11 +16,27 @@ class LocalDataSourceImpl @Inject constructor(
         movieDao.updateMovie(movie)
     }
 
+    override suspend fun deleteMovie(movie: MovieModel) {
+        movieDao.deleteMovie(movie)
+    }
+
+    override suspend fun isDbEmpty(): Boolean {
+        return movieDao.isDbEmpty()
+    }
+
+    override suspend fun isIdValid(id: Int): Boolean {
+        return movieDao.isIdValid(id)
+    }
+
     override suspend fun getMovieById(id: Int): MovieModel =
         movieDao.getMovieById(id)
 
 
     override fun getAllMovies(): Flow<List<MovieModel>> =
         movieDao.getAllMovies()
+
+    override fun getFavMovies(): Flow<List<MovieModel>> =
+        movieDao.getFavMovies()
+
 
 }

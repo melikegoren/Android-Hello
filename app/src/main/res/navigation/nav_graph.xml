@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_moviesFragment_to_addMovieFragment"
             app:destination="@id/addMovieFragment" />
+        <action
+            android:id="@+id/action_moviesFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -47,5 +50,12 @@
         <action
             android:id="@+id/action_favoritesFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_favoritesFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment" />
     </fragment>
 </navigation>
