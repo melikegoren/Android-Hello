@@ -1,4 +1,4 @@
-package com.example.androidhello.ui
+package com.example.androidhello.common
 
 import android.content.Context
 

@@ -8,7 +8,6 @@ interface LocalDataSource {
     suspend fun addMovie(movie: MovieModel)
     suspend fun updateMovie(movie: MovieModel)
     suspend fun deleteMovie(movie: MovieModel)
-    suspend fun isDbEmpty(): Boolean
     suspend fun isIdValid(id: Int): Boolean
     suspend fun getMovieById(id: Int): MovieModel
     fun getAllMovies(): Flow<List<MovieModel>>

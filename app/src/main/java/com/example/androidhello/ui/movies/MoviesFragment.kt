@@ -1,7 +1,6 @@
 package com.example.androidhello.ui.movies
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,11 +15,10 @@ import com.example.androidhello.R
 import com.example.androidhello.databinding.FragmentMoviesBinding
 import com.example.androidhello.domain.mapper.MovieListMapper
 import com.example.androidhello.domain.model.MovieModel
-import com.example.androidhello.ui.SharedPrefManager
+import com.example.androidhello.common.SharedPrefManager
 import com.example.androidhello.ui.adapters.MoviesAdapter
-import com.example.androidhello.ui.cypto.CryptoManager
 import com.example.androidhello.ui.mapper.MovieListUiMapperImpl
-import com.example.androidhello.ui.viewModels.MovieViewModel
+import com.example.androidhello.ui.viewModel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -35,6 +33,8 @@ class MoviesFragment : Fragment(), ClickHandleMoviesFragment {
     private val viewModel: MovieViewModel by viewModels()
 
     private lateinit var allMovies: List<MovieUiData>
+
+
 
     private val movieListMapper: MovieListMapper<MovieModel, MovieUiData> get() = MovieListUiMapperImpl()
 
@@ -66,8 +66,6 @@ class MoviesFragment : Fragment(), ClickHandleMoviesFragment {
 
     }
 
-
-
     private fun bindViewModel(){
         viewModel.movieListFromDatabase.observe(viewLifecycleOwner){
             allMovies = movieListMapper.map(it)
@@ -91,7 +89,7 @@ class MoviesFragment : Fragment(), ClickHandleMoviesFragment {
         }
     }
 
-     fun getSharedPref(){
+     private fun getSharedPref(){
         lifecycleScope.launch{
             val sharedPref = SharedPrefManager(requireContext())
             val id = sharedPref.getSharedPreference("movieId","0").toInt()
@@ -102,14 +100,12 @@ class MoviesFragment : Fragment(), ClickHandleMoviesFragment {
                 binding.textView.text = getString(R.string.last_viewed)
             }
             else{
-                binding.textView.text = getString(R.string.last_viewed)+movie.name
+                binding.textView.text = getString(R.string.last_viewed)+movie.name.uppercase()
             }
-
         }
-
      }
 
-    fun searchView(){
+    private fun searchView(){
         binding.searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 movieAdapter.getFilter().filter(query)
@@ -120,7 +116,6 @@ class MoviesFragment : Fragment(), ClickHandleMoviesFragment {
                 movieAdapter.getFilter().filter(newText)
                 return true
             }
-
         })
     }
 
@@ -135,10 +130,10 @@ class MoviesFragment : Fragment(), ClickHandleMoviesFragment {
         lifecycleScope.launch {
             val movie = viewModel.getMovieById(id)
             if(movie.isFav == true){
-                Toast.makeText(this@MoviesFragment.context, "Movie is already added to the Favorites.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MoviesFragment.context, R.string.already_added, Toast.LENGTH_SHORT).show()
             }
             else{
-                Toast.makeText(context, "Movie added to the Favorites.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.movie_added_fav, Toast.LENGTH_SHORT).show()
                 viewModel.updateMovie(movie.copy(isFav = true))
             }
         }
@@ -147,13 +142,11 @@ class MoviesFragment : Fragment(), ClickHandleMoviesFragment {
     }
 
     override fun deleteMovieClick(id: Int) {
-        /**lifecycleScope.launch {
+        lifecycleScope.launch {
             val movie = viewModel.getMovieById(id)
             viewModel.deleteMovie(movie)
-            Toast.makeText(context, "Movie deleted.", Toast.LENGTH_SHORT).show()
-        }**/
-
-
+            Toast.makeText(context, R.string.movie_deleted, Toast.LENGTH_SHORT).show()
+        }
     }
 
 

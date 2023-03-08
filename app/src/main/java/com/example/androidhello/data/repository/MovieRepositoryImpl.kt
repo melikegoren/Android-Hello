@@ -29,12 +29,6 @@ class MovieRepositoryImpl @Inject constructor (
         }
     }
 
-    override suspend fun isDbEmpty(): Boolean {
-        return withContext(Dispatchers.IO){
-            localDataSource.isDbEmpty()
-        }
-    }
-
     override suspend fun isIdValid(id: Int): Boolean {
         return withContext(Dispatchers.IO){
             localDataSource.isIdValid(id)

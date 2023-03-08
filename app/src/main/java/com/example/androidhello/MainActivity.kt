@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener{ _, destination,_ ->
             if(destination.id == R.id.addMovieFragment ||destination.id == R.id.movieDetailFragment){
-                //bottomNavigationView.visibility = View.INVISIBLE
                 binding.bottomNavigationView.visibility = View.INVISIBLE
             }
             else{

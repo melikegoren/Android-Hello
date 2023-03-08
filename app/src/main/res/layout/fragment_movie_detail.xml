@@ -5,19 +5,24 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    style="@style/SCREEN"
     tools:context=".ui.moviedetail.MovieDetailFragment">
 
 
+
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="Movie Detail"
-        app:titleTextColor="@color/white"
-        android:background="@color/gray_800"/>
+        app:navigationIcon="@drawable/back_arrow_30"
+        style="@style/TOOLBAR"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const_lay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <TextView
             android:id="@+id/movie_name"
@@ -25,8 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin40dp"
             android:text="@string/mad_max_fury_road"
-            android:textStyle="bold"
             android:textSize="@dimen/movie_detail_name_size"
+            android:textStyle="bold"
+            style="@style/TEXT"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView" />
@@ -36,9 +42,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin40dp"
-            android:textSize="@dimen/movie_detail_text_size"
-            android:text="@string/Genre"
             android:drawableStart="@drawable/film_frame_24"
+            android:text="@string/Genre"
+            android:textSize="@dimen/movie_detail_text_size"
+            android:gravity="center"
+            style="@style/TEXT"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,8 +57,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin40dp"
-            android:text="@string/Date"
             android:drawableStart="@drawable/calendar_24"
+            android:text="@string/Date"
+            style="@style/TEXT"
             android:textSize="@dimen/movie_detail_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -62,9 +71,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin40dp"
+            android:drawableStart="@drawable/time_24"
             android:text="@string/first_time_or_rewatch"
-            android:drawableStart="@drawable/time_machine_24"
             android:textSize="@dimen/movie_detail_text_size"
+            style="@style/TEXT"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/date" />
@@ -74,17 +84,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin40dp"
-            android:text="@string/rate"
             android:drawableStart="@drawable/star_24"
+            android:text="@string/rate"
             android:textSize="@dimen/movie_detail_text_size"
+            style="@style/TEXT"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/whichRun" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="155dp"
+            android:layout_height="77dp"
             android:layout_marginTop="@dimen/margin20dp"
             app:layout_constraintBottom_toTopOf="@+id/movie_name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,6 +104,45 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/film_reel_64" />
 
+        <Button
+            android:id="@+id/encrypt"
+            style="@style/BUTTON"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="68dp"
+            android:text="@string/hide_rate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/decrypt"
+            app:layout_constraintHorizontal_bias="0.219"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rate"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/decrypt"
+            style="@style/BUTTON"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="68dp"
+            android:layout_marginEnd="80dp"
+            android:text="@string/show_rate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/encrypt"
+            app:layout_constraintTop_toBottomOf="@+id/rate"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/invisibleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

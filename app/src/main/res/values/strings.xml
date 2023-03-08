@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android Hello</string>
+    <string name="app_name" translatable="false">Android Hello</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bottom_nav_favorites">Favorites</string>
@@ -8,7 +8,7 @@
     <string name="rewatch">Rewatch</string>
     <string name="Genre">Genre: </string>
     <string name="Date">Date: </string>
-    <string name="last_viewed">"Last Viewed: "</string>
+    <string name="last_viewed">Last Viewed: </string>
     <string name="mad_max_fury_road">Mad Max: Fury Road</string>
     <string name="add_movie">Add Movie</string>
     <string name="name">Name</string>
@@ -18,7 +18,13 @@
     <string name="first_time_or_rewatch">First Time or Rewatch: </string>
     <string name="rate"> Rate: </string>
     <string name="action">Action</string>
-
+    <string name="show_rate">Show Rate</string>
+    <string name="hide_rate">Hide Rate</string>
+    <string name="movie_added_fav">Movie added to the Favorites.</string>
+    <string name="movie_removed">Movie removed from the Favorites.</string>
+    <string name="movie_deleted">Movie deleted.</string>
+    <string name="movie_added_database">Movie added.</string>
+    <string name="already_added">Movie is already added to the Favorites.</string>
     <string-array name="Types">
         <item>Action</item>
         <item>Comedy</item>

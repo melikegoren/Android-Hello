@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    style="@style/SCREEN"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.favorites.FavoritesFragment">
 
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="Favorites"
-        app:titleTextColor="@color/white"
+        style="@style/TOOLBAR"
         android:background="@color/gray_800"
         android:layout_marginBottom="@dimen/margin10dp"/>
 

@@ -16,6 +16,13 @@
     <string name="first_time_or_rewatch">First Time or Rewatch:</string>
     <string name="rate">"Rate: "</string>
     <string name="action">Action</string>
+    <string name="show_rate">Show Rate</string>
+    <string name="hide_rate">Hide Rate</string>
+    <string name="movie_added_fav">Movie added to the Favorites.</string>
+    <string name="movie_removed">Movie removed from the Favorites.</string>
+    <string name="movie_deleted">Movie deleted.</string>
+    <string name="movie_added_database">Movie added.</string>
+
 
     <string-array name="Types">
         <item>Action</item>

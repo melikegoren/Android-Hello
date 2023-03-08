@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottom_nav_favorites">Favoriler</string>
+    <string name="bottom_nav_movies">Filmler</string>
+    <string name="first_time">İlk defa</string>
+    <string name="rewatch">Tekrar </string>
+    <string name="Genre">Tür: </string>
+    <string name="Date">Tarih: </string>
+    <string name="last_viewed">Son Görüntülenen: </string>
+    <string name="mad_max_fury_road">Mad Max: Fury Road</string>
+    <string name="add_movie">Film Ekle</string>
+    <string name="name">İsim</string>
+    <string name="type"> Tür</string>
+    <string name="date"> Tarih</string>
+    <string name="save"> Kaydet</string>
+    <string name="first_time_or_rewatch">First Time or Rewatch: </string>
+    <string name="rate"> Puan: </string>
+    <string name="action">Aksiyon</string>
+    <string name="show_rate">Puanı Göster</string>
+    <string name="hide_rate">Puanı Gizle</string>
+    <string name="movie_added_fav">Film Favoriler\'e eklendi.</string>
+    <string name="movie_removed">Film Favoriler\'den kaldırıldı.</string>
+    <string name="movie_deleted">Film silindi.</string>
+    <string name="movie_added_database">Film eklendi.</string>
+    <string name="already_added">Film zaten Favoriler\'de ekli.</string>
+
+    <string-array name="Types">
+        <item>Aksiyon</item>
+        <item>Komedi</item>
+        <item>Fantastik</item>
+        <item>Korku</item>
+        <item>Gerilim</item>
+        <item>Müzikal</item>
+        <item>Drama</item>
+        <item>Bilim-Kurgu</item>
+    </string-array>
+
+
+</resources>

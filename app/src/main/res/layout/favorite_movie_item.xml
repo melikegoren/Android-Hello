@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cw_movie"
         android:layout_width="match_parent"
+        style="@style/CARDVIEW"
         android:layout_height="@dimen/cardview_height"
         android:layout_margin="@dimen/margin10dp"
         app:cardCornerRadius="@dimen/margin10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="397dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
+
 
             <TextView
                 android:id="@+id/movie_name"
-                android:layout_width="match_parent"
+                style="@style/TEXT"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin10dp"
-                android:layout_marginEnd="100dp"
                 android:text="@string/mad_max_fury_road"
                 android:textSize="@dimen/cw_text_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
             <ImageButton
                 android:id="@+id/remove_from_fav"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin20dp"
                 android:backgroundTint="@drawable/state_pressed"
-                android:src="@drawable/minus_35"
+                android:src="@drawable/remove_fav_30"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.268"
-                app:layout_constraintStart_toEndOf="@+id/movie_name"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.516" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -47,4 +47,3 @@
 
 
 
-</LinearLayout>

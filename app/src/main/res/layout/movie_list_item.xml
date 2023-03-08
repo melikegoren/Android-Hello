@@ -8,6 +8,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cw_movie"
         android:layout_width="match_parent"
+        style="@style/CARDVIEW"
         android:layout_height="@dimen/cardview_height"
         android:layout_margin="@dimen/margin10dp"
         app:cardCornerRadius="@dimen/margin10dp">
@@ -24,6 +25,7 @@
                 android:layout_marginEnd="@dimen/margin100dp"
                 android:text="@string/mad_max_fury_road"
                 android:textSize="@dimen/cw_text_size"
+                style="@style/TEXT"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -33,24 +35,26 @@
                 android:id="@+id/add_to_fav"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
+                android:layout_marginEnd="60dp"
                 android:backgroundTint="@drawable/state_pressed"
-                android:src="@drawable/add_to_fav"
+                android:src="@drawable/heart_plus_30"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/movie_name"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.483" />
 
             <ImageButton
                 android:id="@+id/delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@drawable/state_pressed"
-                android:src="@drawable/remove_35"
+                android:src="@drawable/remove_30"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.431"
+                app:layout_constraintHorizontal_bias="0.384"
                 app:layout_constraintStart_toEndOf="@+id/add_to_fav"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.483" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

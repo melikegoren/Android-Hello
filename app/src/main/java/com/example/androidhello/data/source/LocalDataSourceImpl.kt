@@ -20,10 +20,6 @@ class LocalDataSourceImpl @Inject constructor(
         movieDao.deleteMovie(movie)
     }
 
-    override suspend fun isDbEmpty(): Boolean {
-        return movieDao.isDbEmpty()
-    }
-
     override suspend fun isIdValid(id: Int): Boolean {
         return movieDao.isIdValid(id)
     }

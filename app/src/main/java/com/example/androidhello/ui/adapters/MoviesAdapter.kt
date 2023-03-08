@@ -15,17 +15,13 @@ class MoviesAdapter(private val movieList: ArrayList<MovieUiData>, private val c
                     private val clickHandleMoviesFragment: ClickHandleMoviesFragment
 ): RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
-
-
     private val initialMovieList = kotlin.collections.ArrayList<MovieUiData>().apply {
         movieList.let {
             addAll(it)
        }
     }
 
-    class MovieViewHolder(val binding: MovieListItemBinding): RecyclerView.ViewHolder(binding.root) {
-
-    }
+    class MovieViewHolder(val binding: MovieListItemBinding): RecyclerView.ViewHolder(binding.root) {}
 
 
 
@@ -51,22 +47,12 @@ class MoviesAdapter(private val movieList: ArrayList<MovieUiData>, private val c
             delete.setOnClickListener {
                 clickHandleMoviesFragment.deleteMovieClick(movie.id)
             }
-
-
-
-
-
         }
-
-
-
     }
 
     override fun getItemCount(): Int = movieList.size
 
-
-
-   private fun setFilter() = object : Filter(){
+    private fun setFilter() = object : Filter(){
             override fun performFiltering(p0: CharSequence?): FilterResults {
                 val filteredList: ArrayList<MovieUiData> = ArrayList()
                 if(p0.isNullOrEmpty()){
@@ -75,7 +61,7 @@ class MoviesAdapter(private val movieList: ArrayList<MovieUiData>, private val c
                 else{
                     val query = p0.toString().trim().lowercase()
                     initialMovieList.forEach{
-                        if(it.movieName.toLowerCase(Locale.ROOT).contains(query)){
+                        if(it.movieName.lowercase(Locale.ROOT).contains(query)){
                             filteredList.add(it)
                         }
                     }

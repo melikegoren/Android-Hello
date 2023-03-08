@@ -12,7 +12,6 @@ class MovieListUiMapperImpl @Inject constructor(): MovieListMapper<MovieModel, M
                 id = it.id,
                 movieName = it.name
             )
-
         }
     }
 }

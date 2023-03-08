@@ -7,16 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.androidhello.R
 import com.example.androidhello.databinding.FragmentMovieDetailBinding
 import com.example.androidhello.domain.mapper.MovieDetailMapper
 import com.example.androidhello.domain.model.MovieModel
-import com.example.androidhello.ui.SharedPrefManager
+import com.example.androidhello.common.SharedPrefManager
+import com.example.androidhello.common.CryptoManager
 import com.example.androidhello.ui.mapper.MovieDetailUiMapperImpl
-import com.example.androidhello.ui.viewModels.MovieViewModel
+import com.example.androidhello.ui.viewModel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 
 
 @AndroidEntryPoint
@@ -28,6 +33,8 @@ class MovieDetailFragment : Fragment() {
     private val viewModel: MovieViewModel by viewModels()
 
     private val args: MovieDetailFragmentArgs by navArgs()
+
+    private val cryptoManager = CryptoManager()
 
     private val movieDetailMapper: MovieDetailMapper<MovieModel, MovieDetailUiData> get() =  MovieDetailUiMapperImpl()
 
@@ -49,40 +56,76 @@ class MovieDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         getMovieByIdd()
         setSharedPref()
-
-
-
+        encryptButton()
+        decryptButton()
+        toolbarBackButton()
 
     }
 
-    fun getMovieByIdd(){
+    private fun getMovieByIdd(){
         lifecycleScope.launch{
             val id = args.id
             val movie = viewModel.getMovieById(id)
             val mappedMovie =  movieDetailMapper.map(movie)
+            val whichRunn = mappedMovie.whichTurn
             binding.apply {
                 movieName.text = mappedMovie.name
                 genre.text = getString(R.string.Genre)+mappedMovie.genre
                 date.text = getString(R.string.Date)+mappedMovie.date
-                whichRun.text = mappedMovie.whichTurn
                 rate.text = mappedMovie.rate
-
+                whichRun.text = mappedMovie.whichTurn
             }
         }
 
-
     }
 
-    fun setSharedPref(){
+    private fun encryptButton(){
+        binding.encrypt.setOnClickListener {
+            encryptRate(binding.rate.text.toString())
+            binding.rate.text = ""
+            binding.encrypt.isEnabled = false
+
+        }
+    }
+
+    private fun decryptButton(){
+        binding.decrypt.setOnClickListener {
+            binding.decrypt.isEnabled = true
+            decryptRate()
+        }
+    }
+
+    private fun setSharedPref(){
         val sharedPref = SharedPrefManager(requireContext())
         sharedPref.setSharedPreference("movieId", args.id.toString())
     }
 
+    private fun encryptRate(text: String){
+        val bytes = text.encodeToByteArray()
+        val file = File(requireActivity().filesDir,"rate.txt")
+        if(!file.exists()){
+            file.createNewFile()
+        }
+        val fos = FileOutputStream(file)
+        val textToDecrypt = cryptoManager.encrypt(bytes, fos).decodeToString()
 
+    }
 
+    private fun decryptRate(){
+        val file = File(requireActivity().filesDir,"rate.txt")
+        val text = cryptoManager.decrypt(
+            inputStream = FileInputStream(file)
+        ).decodeToString()
+        binding.rate.text = text
+        //binding.invisibleText.text = text
 
+    }
 
+    private fun toolbarBackButton(){
+        binding.toolbar.setNavigationOnClickListener {
+            val action = MovieDetailFragmentDirections.actionMovieDetailFragmentToMoviesFragment()
+            findNavController().navigate(action)
+        }
 
-
-
+    }
 }

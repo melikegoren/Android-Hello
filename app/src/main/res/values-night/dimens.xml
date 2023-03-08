@@ -10,4 +10,5 @@
     <dimen name="margin40dp">40dp</dimen>
     <dimen name="margin100dp">100dp</dimen>
     <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="fragment_container_view_height">600dp</dimen>
 </resources>
